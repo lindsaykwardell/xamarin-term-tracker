@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Course Details"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeXamarin.CourseDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="EditCourseButton" Text="Edit Term" Activated="EditCourseButton_Activated" Order="Secondary" />
+        <ToolbarItem x:Name="DeleteCourseButton" Text="Delete Term" Activated="DeleteCourseButton_Activated" Order="Secondary" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Spacing="10" Padding="5">
+                <StackLayout>
+                    <Label Text="Status" FontSize="Medium" />
+                    <Picker x:Name="StatusPicker" Title="Status" SelectedIndexChanged="StatusPicker_SelectedIndexChanged">
+                        <Picker.Items>
+                            <x:String>Plan to Take</x:String>
+                            <x:String>Scheduled</x:String>
+                            <x:String>In Progress</x:String>
+                            <x:String>Completed</x:String>
+                            <x:String>Dropped</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Start: " FontSize="Medium" />
+                    <Label Text="{Binding StartDate, StringFormat='{0:MM/dd/yyyy}'}" FontSize="Medium" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="End: " FontSize="Medium" />
+                    <Label Text="{Binding EndDate, StringFormat='{0:MM/dd/yyyy}'}" FontSize="Medium" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Spacing="10" Padding="5">
+                <Label Text="Instructor" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="{Binding InstructorName}" />
+                <Label Text="{Binding InstructorPhone}" />
+                <Label Text="{Binding InstructorEmail}" />
+            </StackLayout>
+            <StackLayout Spacing="10" Padding="5" VerticalOptions="FillAndExpand" BackgroundColor="Beige">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Notes" FontSize="Medium" FontAttributes="Bold" />
+                    <Button x:Name="ShareNotesButton" Text="Share" Clicked="ShareNotesButton_Clicked" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <Editor x:Name="CourseNotesEditor" VerticalOptions="FillAndExpand" TextChanged="CourseNotesEditor_TextChanged" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

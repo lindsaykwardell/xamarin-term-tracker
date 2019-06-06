@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeXamarin.NewAssessmentModal">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add New Assessment" HorizontalOptions="CenterAndExpand" FontSize="Large" Margin="20" />
+            <StackLayout VerticalOptions="FillAndExpand" Padding="5">
+                <Label Text="General" FontSize="Medium" FontAttributes="Bold" Margin="10" />
+                <Label Text="Assessment Name" FontSize="Small" />
+                <Entry x:Name="AssessmentNameEntry" Keyboard="Text" Placeholder="Assessment Name" />
+                <Label Text="Due Date" FontSize="Small" />
+                <DatePicker x:Name="DueDatePicker" Format="MM/dd/yy" />
+            </StackLayout>
+            <Button Text="Add Assessment" BackgroundColor="Navy" TextColor="White" Margin="15" Clicked="Button_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

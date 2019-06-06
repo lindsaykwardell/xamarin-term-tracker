@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="All Terms"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeXamarin.TermPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New" Activated="ToolbarItem_Activated" Order="Primary" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView x:Name="TermListView" ItemSelected="TermListView_ItemSelected" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <StackLayout Margin="5">
+                            <Label Text="{Binding TermName}" TextColor="Navy" FontAttributes="Bold" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Start: " TextColor="Gray" FontSize="Small" />
+                                <Label Text="{Binding StartDate, StringFormat='{0:MM/dd/yyyy}'}" TextColor="Gray" FontSize="Small" />
+                                <Label Text="End: " TextColor="Gray" FontSize="Small" />
+                                <Label Text="{Binding EndDate, StringFormat='{0:MM/dd/yyyy}'}" TextColor="Gray" FontSize="Small" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

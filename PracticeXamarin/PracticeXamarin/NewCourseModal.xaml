@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeXamarin.NewCourseModal">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add New Course" HorizontalOptions="CenterAndExpand" FontSize="Large" Margin="20" />
+            <StackLayout VerticalOptions="FillAndExpand" Padding="5">
+                <Label Text="General" FontSize="Medium" FontAttributes="Bold" Margin="10" />
+                <Label Text="Course Name" FontSize="Small" />
+                <Entry x:Name="CourseNameEntry" Keyboard="Text" Placeholder="Course Name" />
+                <Label Text="Start Date" FontSize="Small" />
+                <DatePicker x:Name="StartDatePicker" Format="MM/dd/yy" />
+                <Label Text="End Date" FontSize="Small" />
+                <DatePicker x:Name="EndDatePicker" Format="MM/dd/yy" />
+                <Label Text="Instructor Details" FontSize="Medium" FontAttributes="Bold" Margin="10" />
+                <Label Text="Instructor Name" FontSize="Small" />
+                <Entry x:Name="InstructorNameEntry" Keyboard="Text" Placeholder="Instructor Name" />
+                <Label Text="Phone" FontSize="Small" />
+                <Entry x:Name="InstructorPhoneEntry" Keyboard="Telephone" Placeholder="Phone" />
+                <Label Text="Email" FontSize="Small" />
+                <Entry x:Name="InstructorEmailEntry" Keyboard="Email" Placeholder="instructor@wgu.edu" />
+            </StackLayout>
+            <Button Text="Add Course" BackgroundColor="Navy" TextColor="White" Margin="15" Clicked="Button_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

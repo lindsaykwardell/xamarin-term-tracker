@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="{Binding TermName}" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeXamarin.TermDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddCourseButton" Text="Add Course" Activated="AddCourseButton_Activated" Order="Primary" />
+        <ToolbarItem x:Name="EditTermButton" Text="Edit Term" Activated="EditTermButton_Activated" Order="Secondary" />
+        <ToolbarItem x:Name="DeleteTermButton" Text="Delete Term" Activated="DeleteTermButton_Activated" Order="Secondary" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="Navy" Spacing="10" Padding="5" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Start: " TextColor="LightGray" FontSize="Medium" />
+                    <Label Text="{Binding StartDate, StringFormat='{0:MM/dd/yyyy}'}" TextColor="White" FontSize="Medium" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="End: " TextColor="LightGray" FontSize="Medium" />
+                    <Label Text="{Binding EndDate, StringFormat='{0:MM/dd/yyyy}'}" TextColor="White" FontSize="Medium" />
+                </StackLayout>
+            </StackLayout>
+            <ListView x:Name="CourseListView" HasUnevenRows="True" ItemSelected="CourseListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Margin="5">
+                                <Label Text="{Binding Name}" TextColor="Navy" FontAttributes="Bold" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Start Date: " TextColor="Gray" FontSize="Small" />
+                                    <Label Text="{Binding StartDate, StringFormat='{0:MM/dd/yyyy}'}" TextColor="Gray" FontSize="Small" />
+                                    <Label Text="End Date: " TextColor="Gray" FontSize="Small" />
+                                    <Label Text="{Binding EndDate, StringFormat='{0:MM/dd/yyyy}'}" TextColor="Gray" FontSize="Small" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

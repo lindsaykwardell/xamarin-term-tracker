@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Assessments"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeXamarin.CourseAssessmentsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Add Assessment" BackgroundColor="Navy" TextColor="White" Margin="15" Clicked="Button_Clicked" />
+            <ListView x:Name="AssessmentListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Margin="5">
+                                <Label Text="{Binding Name}" TextColor="Navy" FontAttributes="Bold" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Type: " TextColor="Gray" FontSize="Small" />
+                                    <Label Text="{Binding Type}" TextColor="Gray" FontSize="Small" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Due Date: " TextColor="Gray" FontSize="Small" />
+                                    <Label Text="{Binding DueDate, StringFormat='{0:MM/dd/yyyy}'}" TextColor="Gray" FontSize="Small" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
