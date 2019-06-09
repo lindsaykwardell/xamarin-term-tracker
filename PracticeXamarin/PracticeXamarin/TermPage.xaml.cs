@@ -18,6 +18,7 @@ namespace PracticeXamarin
     {
         TermsDataAccess terms = new TermsDataAccess();
         CoursesDataAccess courses = new CoursesDataAccess();
+        AssessmentsDataAccess assessments = new AssessmentsDataAccess();
 
         public TermPage()
         {
@@ -45,6 +46,16 @@ namespace PracticeXamarin
                     else if (course.EndDate > DateTime.Now)
                     {
                         CrossLocalNotifications.Current.Show("Course Ending Soon", course.Name + " is ending next week! Are you ready?", 100000 + course.Id, course.EndDate.AddDays(-7));
+                    }
+                }
+            }
+            foreach(var assessment in assessments.Assessments)
+            {
+                if (assessment.ShowNotifications)
+                {
+                    if (assessment.DueDate > DateTime.Now)
+                    {
+                        CrossLocalNotifications.Current.Show("Upcoming Assessment", assessment.Name + " is due tomorrow! Are you ready?", 200000 + assessment.Id, assessment.DueDate.AddDays(-1));
                     }
                 }
             }

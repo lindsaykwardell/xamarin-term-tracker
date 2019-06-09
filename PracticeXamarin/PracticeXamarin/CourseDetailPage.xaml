@@ -3,10 +3,6 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PracticeXamarin.CourseDetailPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="EditCourseButton" Text="Edit Term" Activated="EditCourseButton_Activated" Order="Secondary" />
-        <ToolbarItem x:Name="DeleteCourseButton" Text="Delete Term" Activated="DeleteCourseButton_Activated" Order="Secondary" />
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Spacing="10" Padding="5">

@@ -21,12 +21,18 @@
     <Compile Update="EditCourseModal.xaml.cs">
       <DependentUpon>EditCourseModal.xaml</DependentUpon>
     </Compile>
+    <Compile Update="EditAssessmentModal.xaml.cs">
+      <DependentUpon>EditAssessmentModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="NewCourseModal.xaml.cs">
       <DependentUpon>NewCourseModal.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="AssessmentDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="CourseAssessmentsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

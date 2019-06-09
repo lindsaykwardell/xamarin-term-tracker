@@ -77,8 +77,8 @@ namespace PracticeXamarin
             var course = e.SelectedItem as Course;
             if (course != null)
             {
-                await Navigation.PushAsync(new CourseMasterPage(course, courses));
                 CourseListView.SelectedItem = null;
+                await Navigation.PushAsync(new CourseMasterPage(course, courses));
             }
         }
     }

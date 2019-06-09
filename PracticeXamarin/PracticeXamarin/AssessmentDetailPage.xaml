@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="{Binding Name}"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeXamarin.AssessmentDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="EditAssessmentButton" Text="Edit Assessment" Activated="EditAssessmentButton_Activated" Order="Secondary" />
+        <ToolbarItem x:Name="DeleteAssessmentButton" Text="Delete Assessment" Activated="DeleteAssessmentButton_Activated" Order="Secondary" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Type: " FontSize="Medium" />
+                <Label Text="{Binding Type}" FontSize="Medium" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Due Date: " FontSize="Medium" />
+                <Label Text="{Binding DueDate, StringFormat='{0:MM/dd/yyyy}'}" FontSize="Medium" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="5">
+                <Label Text="Notifications" FontSize="Medium" />
+                <Switch x:Name="NotificationSwitch" IsToggled="True" Toggled="NotificationSwitch_Toggled" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

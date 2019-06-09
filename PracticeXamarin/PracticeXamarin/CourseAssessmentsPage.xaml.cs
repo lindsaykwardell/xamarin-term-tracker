@@ -28,9 +28,12 @@ namespace PracticeXamarin
             this.courses = courses;
 
             assessments.Assessments.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(CollectionChangedMethod);
+
+            this.PopulateAssessmentList();
+            AssessmentListView.ItemsSource = assessmentsForCourse;
         }
 
-        private void CollectionChangedMethod(object sender, NotifyCollectionChangedEventArgs e)
+        private void PopulateAssessmentList()
         {
             this.assessmentsForCourse.Clear();
             foreach (var assessment in assessments.Assessments)
@@ -42,9 +45,25 @@ namespace PracticeXamarin
             }
         }
 
+        private void CollectionChangedMethod(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            this.PopulateAssessmentList();
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NewAssessmentModal());
+            await Navigation.PushModalAsync(new NewAssessmentModal(course, assessments));
+        }
+
+        private async void AssessmentListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var assessment = e.SelectedItem as Assessment;
+            if (assessment != null)
+            {
+                await Navigation.PushAsync(new AssessmentDetailPage(assessment, assessments));
+                AssessmentListView.SelectedItem = null;
+                this.PopulateAssessmentList();
+            }
         }
     }
 }

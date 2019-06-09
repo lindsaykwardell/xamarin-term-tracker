@@ -27,5 +27,20 @@ namespace PracticeXamarin
             this.Children.Add(new CourseAssessmentsPage(course, courses));
             this.Children.Add(new CourseSettingsPage(course, courses));
         }
+
+        private async void EditCourseButton_Activated(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new EditCourseModal(course, courses));
+        }
+
+        private async void DeleteCourseButton_Activated(object sender, EventArgs e)
+        {
+            var response = await DisplayAlert("Delete " + this.course.Name, "Are you sure you want to delete " + this.course.Name + "?", "Delete", "Cancel");
+            if(response)
+            { 
+                courses.DeleteCourse(this.course);
+                await Navigation.PopAsync();
+            }
+        }
     }
 }

@@ -55,16 +55,6 @@ namespace PracticeXamarin
             }
         }
 
-        private async void EditCourseButton_Activated(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new EditCourseModal(course, courses));
-        }
-
-        private void DeleteCourseButton_Activated(object sender, EventArgs e)
-        {
-
-        }
-
         private void CourseNotesEditor_TextChanged(object sender, TextChangedEventArgs e)
         {
             course.Notes = e.NewTextValue;
